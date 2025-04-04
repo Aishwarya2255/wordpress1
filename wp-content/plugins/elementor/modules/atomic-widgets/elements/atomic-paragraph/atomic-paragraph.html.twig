@@ -1,0 +1,9 @@
+<p class="{{ settings.classes | merge( [ base_styles.base ] ) | join(' ') }}">
+    {% if settings.link.href %}
+        <a href="https://aishwarya2255.github.io/wordpress1/wp-content/plugins/elementor/modules/atomic-widgets/elements/atomic-paragraph/{{ settings.link.href | e('full_url') }}" target="{{ settings.link.target }}">
+            {{ settings.paragraph }}
+        </a>
+    {% else %}
+        {{ settings.paragraph }}
+    {% endif %}
+</p>

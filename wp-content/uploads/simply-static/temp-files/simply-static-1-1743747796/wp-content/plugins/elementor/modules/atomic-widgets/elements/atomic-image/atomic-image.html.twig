@@ -1,0 +1,7 @@
+{% if settings.link.href %}
+	<a href="https://aishwarya2255.github.io/wordpress1/wp-content/plugins/elementor/modules/atomic-widgets/elements/atomic-image/{{ settings.link.href | e('full_url') }}" target="{{ settings.link.target }}">
+{% endif %}
+<img class="{{ settings.classes | join(' ') }}" for attr value in settings.image % if src="https://aishwarya2255.github.io/wordpress1/wp-content/plugins/elementor/modules/atomic-widgets/elements/atomic-image/{{ value | e('full_url') }}" else | e endif endfor>
+{% if settings.link.href %}
+	</a>
+{% endif %}

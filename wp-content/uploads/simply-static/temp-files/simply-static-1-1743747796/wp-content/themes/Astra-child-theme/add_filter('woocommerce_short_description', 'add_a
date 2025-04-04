@@ -1,0 +1,27 @@
+add_filter('woocommerce_short_description', 'add_attributes_to_short_description', 10, 1);
+
+function add_attributes_to_short_description($short_description) {
+    if (!is_product()) { 
+        return $short_description; // Prevents issues on Shop/Archive pages
+    }
+
+    global $product;
+    
+    if (!is_a($product, 'WC_Product')) { 
+        return $short_description; // Ensures $product exists
+    }
+
+    $attributes = $product->get_attributes();
+    
+    if (!empty($attributes)) {
+        $short_description .= '<ul class="custom-attributes">';
+        foreach ($attributes as $attribute) {
+            $name = wc_attribute_label($attribute->get_name());
+            $value = implode(', ', wc_get_product_terms($product->get_id(), $attribute->get_name(), ['fields' => 'names']));
+            $short_description .= '<li><strong>' . esc_html($name) . ':</strong> ' . esc_html($value) . '</li>';
+        }
+        $short_description .= '</ul>';
+    }
+    
+    return $short_description;
+}

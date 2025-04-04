@@ -1,0 +1,39 @@
+<table class="wc_status_table widefat" cellspacing="0">
+  <thead>
+  <tr>
+    <th colspan="3" data-export-label="MailPoet"><h2><%= __("MailPoet") %>
+      <span class="woocommerce-help-tip" data-tip="<%= __(" this section shows details of mailpoet %>"></span>
+    </h2></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td data-export-label="Sending Method"><%= __("Sending Method:") %></td>
+    <td class="help">
+      <span class="woocommerce-help-tip" data-tip="<%= __(" what method is used to send out newsletters %>"></span>
+    </td>
+    <td><%= system_info.sending_method %></td>
+  </tr>
+  <tr>
+    <td data-export-label="Send all site's emails with"><%= __("Send all site's emails with:") %></td>
+    <td class="help">
+      <span class="woocommerce-help-tip" data-tip="<%= __(" with which method are transactional emails sent %>"></span>
+    </td>
+    <td><%= system_info.transactional_emails %></td>
+  </tr>
+  <tr>
+    <td data-export-label="Task Scheduler method"><%= __("Task Scheduler method:") %></td>
+    <td class="help">
+      <span class="woocommerce-help-tip" data-tip="<%= __(" what method controls the cron job %>"></span>
+    </td>
+    <td><%= system_info.task_scheduler_method %></td>
+  </tr>
+  <tr>
+    <td data-export-label="Cron ping URL"><%= __("Cron ping URL:") %></td>
+    <td class="help">
+      <span class="woocommerce-help-tip" data-tip="<%= __(" which url needs to be pinged get the cron started %>"></span>
+    </td>
+    <td><a href="https://aishwarya2255.github.io/wordpress1/wp-content/plugins/mailpoet/views/<%= system_info.cron_ping_url|escape('html_attr') %>"><%= system_info.cron_ping_url %></a></td>
+  </tr>
+  </tbody>
+</table>
